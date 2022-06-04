@@ -22,4 +22,4 @@ while still_playing:
     else:
         print('not enough')
         continue
-print('end of game')
+print('end of game!')
