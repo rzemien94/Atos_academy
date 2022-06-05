@@ -23,11 +23,13 @@ def count_vovels(data: str) -> int:
 # ilość znaczników "a" posaidających link do jakiejś strony
 
 def get_statistics(url: str) -> dict:
-    response = requests.get(url)
+    try:
+        response = requests.get(url)
+    except Exception as e:
+        return dict(message='nie odnaleziono strony')
 
     if response.status_code != 200:
-        print('nie otrzymano odpowiedzi')
-        return
+        return dict(message='nie otrzymano poprawnej odpowiedzi')
 
     html_data = soup(response.text, 'html.parser')
     word_counter = 0
