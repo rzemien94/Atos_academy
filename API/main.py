@@ -7,6 +7,6 @@ app = FastAPI()
 
 
 @app.get("/stats")
-async def root(url: str):
+async def stats(url: str):
     statistics = GetStatistics.get_statistics(url)
     return statistics
